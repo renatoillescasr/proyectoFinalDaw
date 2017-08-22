@@ -1,0 +1,13 @@
+extends ../layouts/default
+include ../mixins/order
+
+block content
+  .container
+    h1 My Orders list
+    .blog
+      each post in order
+        ul
+          +order(post)
+          //each order in myorders
+          //  li
+          //    a(href="/myorders/"+order.id)= order.id

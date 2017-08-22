@@ -1,0 +1,14 @@
+extends ../layouts/default
+
+block content
+  .container
+    h2 Products
+    .row
+      .col-md-12.col-lg-12
+        .row
+          each store in products
+            .col-md4.col-lg-4
+              h2 
+                a(href="/products/"+store.slug)= store.title
+              if store.image
+                img(src=store.image.url width=160 height=160).thumbnail
