@@ -2,13 +2,31 @@ extends ../layouts/default
 
 block content
   .container
-    h2 Products
+    h2 Dresses
     .row
-      .col-md-12.col-lg-12
-        .row
-          each store in products
-            .col-md4.col-lg-4
-              h2 
-                a(href="/products/"+store.slug)= store.title
-              if store.image
-                img(src=store.image.url width=140 height=140).thumbnail
+      .hidden-xs.hidden-sm.col-md-2.col-lg-2
+        ul.menuColeccion.nav.nav-list
+          li
+            label VESTIDOS
+            ul#despliegeMarcas.nav.nav-list.tree
+              li
+                a(href="") 
+                  span.activo GraceKarin
+              li
+                a(href="") Kate
+      .col-md-10.col-lg-10
+          .row#galeriaColeccion
+            each store in products
+              .col-md4.col-lg-4.col-xs-6.thumb
+                //h2 
+                  a(href="/products/"+store.slug)= store.title
+                if store.image
+                  a(class="thumbnail" href="/products/"+store.slug)
+                    figure
+                      img(src=store.image.url width=300 height=300).imageGaleria.img-responsive.gallerythumb
+                  .datosgaleria
+                    ul
+                      li= store.description
+                      li(class="costo") $ 
+                        =store.price
+                

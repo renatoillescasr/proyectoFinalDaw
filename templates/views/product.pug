@@ -8,25 +8,32 @@ block content
           p
             a(href="/products") &larr; Back
           hr
-          header
-            h2= data.product.title
           .row
+            .col-md-2.col-lg-2
+              h3 menu
             .col-md-6.col-lg-6
               if data.product.image
                 img(src=data.product.image.url).img-responsive
-            .col-md-6.col-lg-6
-              ul.list-group
-                li.list-group-item 
-                  strong Price:
-                    =data.product.price
-                li.list-group-item 
-                  strong Qty:
-                    input(type="number" value="1")#quantity
-                    //=data.product.qty
-              .well
-                =data.product.description
-              <button class="btn btn-success btn-block" onclick="add_to_cart('#{data.product.id}','#{data.product.price}')">Add to cart
-              </button>
+            .col-xs-12.col-sm-12.col-md-4.col-lg-4
+              .datosVestido.col-xs-10.col-sm-8.col-md-12
+                ul.list-group
+                  li
+                    h2= data.product.title
+                  li
+                    h2 $ 
+                      =data.product.price
+                  li.list-group-item 
+                    .row 
+                      .form-group
+                        .col-xs-2.control-label
+                          strong Qty:
+                        .col-xs-4
+                          input(type="number" value="1" min="0" max="5" sixe="8")#quantity.form-control
+                      //=data.product.qty
+                .well
+                  =data.product.description
+                <button class="btn btn-danger btn-block" onclick="add_to_cart('#{data.product.id}','#{data.product.price}')">Add to Cart
+                </button>
               
 block js
   script(src="/js/cart.js")
