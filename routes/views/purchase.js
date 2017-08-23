@@ -12,9 +12,9 @@ exports = module.exports = function(req,res){
   }
   if(req.session.cart != undefined){
     mycart_item_ids = [];
-    async.forEach(req.session.cart, function(item,callback){
+    async.forEach(req.session.cart, function(item, callback){
       console.log(JSON.stringify(item));
-      oitem = new OrderItem.mode({
+      oitem = new OrderItem.model({
         product: item.product._id,
         quantity: item.product.quantity,
         price: item.product.price,
@@ -39,7 +39,7 @@ exports = module.exports = function(req,res){
         errorMessage:'Error al crear la orden'
       });
 
-      update.process(req.body, {
+      updater.process(req.body, {
         flashErrors: true,
         logErrors: true,
       },function(err){

@@ -18,10 +18,10 @@ exports.initLocals = function (req, res, next) {
 	];
 
 	//res.locals.user = req.user;
-	if(req.user)locals.navLinks.push({label: 'My Orders', key: 'myorders', href: '/myorders'});
+	if(req.user) locals.navLinks.push({label: 'My Orders', key: 'myorders', href: '/myorders'});
 	locals.user = req.user;
-	if(req.session.cart == undefined)req.session.cart = [];
-		res.locals.sumcount = 0;
+	if(req.session.cart == undefined) req.session.cart = [];
+	res.locals.sumcount = 0;
 	req.session.cart.forEach(function(item){
 		res.locals.sumcount += item.product.price*item.product.quantity;
 	});
