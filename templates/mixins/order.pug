@@ -1,8 +1,0 @@
-mixin order(order)
-  li
-    h3: a(href='order/'+ order.id)= order.id
-    h3= 'user' + order.customer.name.first
-      each item in order.items
-        h4= 'item'+ item
-    hr
-  
