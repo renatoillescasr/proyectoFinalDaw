@@ -5,8 +5,8 @@ var Product = new keystone.List('Product',{
   map:      {
               name: 'title'
             },
-  singular: 'Product',
-  plural:   'Products',
+  singular: 'Producto',
+  plural:   'Productos',
   autokey:  {
               path:'slug',
               from:'title',
