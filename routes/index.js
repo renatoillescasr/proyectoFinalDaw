@@ -39,13 +39,26 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
   app.get('/catalogue', routes.views.product);
+  app.get('/catalogue/:slug', routes.views.product.get);
+  app.get('/mycart', routes.views.mycart);
   app.get('/store', routes.views.store);
   app.get('/contact', routes.views.contact);
+  app.get('/register', routes.views.register);
+  app.get('/account', routes.views.account);
+  app.get('/graph/coste', routes.views.graph_coste);
+  app.get('/graph/stock', routes.views.graph_stock);
 
 
   // API
+  app.post('/api/user/create', keystone.middleware.api, routes.api.user.create);
+  app.post('/api/user/:id/update', keystone.middleware.api, routes.api.user.update);
+
   app.get('/api/product/list', keystone.middleware.api, routes.api.products.list);
   app.get('/api/product/:brand/list', keystone.middleware.api, routes.api.products.brand_list);
 
   app.get('/api/store/list', keystone.middleware.api, routes.api.stores.list);
+
+  app.get('/api/cart', keystone.middleware.api, routes.api.order.get);
+
+  app.post('/api/cart', keystone.middleware.api, routes.api.order.add);
 };

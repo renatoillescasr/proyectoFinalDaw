@@ -1,0 +1,13 @@
+extends ../layouts/default
+
+block content
+  section#variante.container
+    h2 Grafica de costo - Vestido vs Descuento
+    #graficaD3
+      //-escritura del grafico desde datos de json
+
+block js
+  //- js de grafico
+  script(src="http://d3js.org/d3.v3.min.js")
+  //- Mi JQuery
+  script(src="/javascripts/graph_coste.js")

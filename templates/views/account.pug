@@ -1,0 +1,53 @@
+extends ../layouts/default
+
+block css
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.css')
+
+block content
+
+  section#variante.container
+    #cuerpo.row
+      h2 Cuenta
+
+      h3 Información Personal
+      form.form-horizontal(method="POST" action="/api/user/" + user.id + "/update" id="sign_up")
+        input(type="hidden" id="redirect" value="/account")
+
+        .form-group
+          label.col-sm-offset-1.col-sm-2.control-label(for="name.first") Nombres:
+          .col-sm-4
+            input.form-control(type="text" id="first_name" name="name.first" autocomplete="on" value=user.name.first placeholder="Nombres completos")
+
+        .form-group
+          label.col-sm-offset-1.col-sm-2.control-label(for="name.last") Apellidos:
+          .col-sm-4
+            input.form-control(type="text" id="last_name" name="name.last" autocomplete="on" value=user.name.last placeholder="Apellidos completos")
+
+        .form-group
+          label.col-sm-offset-1.col-sm-2.control-label(for="address") Direccion domiciliaria:
+          .col-sm-4
+            input.form-control(type="text" id="address" name="address" autocomplete="on" value=user.address placeholder="direccion mz. v.")
+
+        h3 Para Inicio de Sesión
+        .form-group
+          label.col-sm-offset-1.col-sm-2.control-label(for="email") Correo:
+          .col-sm-4
+            input.form-control(type="email" id="email" autocomplete="email" name="email" value=user.email placeholder="correo@electronico.com", required="required")
+
+        .form-group
+          label.col-sm-offset-1.col-sm-2.control-label(for="password") Nueva contraseña:
+          .col-sm-4
+            input().form-control(type="password" id="password" name="password" required="required")
+
+        .form-group
+          label.col-sm-offset-1.col-sm-2.control-label(for="password_confirmation") Confirmar nueva contraseña:
+          .col-sm-4
+            input.form-control(type="password", id="password_confirmation", name="password_confirmation" required="required")
+
+        .form-group
+          .col-sm-offset-5.col-sm-7
+            button#sub.btn.btn-danger(type="button") Enviar
+
+block js
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.js')
+  script(src='/javascripts/sign_up.js')

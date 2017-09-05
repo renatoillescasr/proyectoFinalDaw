@@ -5,26 +5,36 @@ header.container
         img.logo.img-responsive(src='/images/logo.png', alt='logo')
     nav.navbar.menuSesion.col-xs-12.col-sm-10.col-md-10
       .container-fluid.nav.navbar-nav.navbar-right
-        a#carrito(href='micarrito.html')
+        a#carrito(href='/mycart')
           span.glyphicon.glyphicon-shopping-cart
           Mi Carrito
 
-          if user
-            if user.canAccessKeystone
-              a(href='/keystone')
-                span.glyphicon.glyphicon-user
-                |  Admin
-            a(href='/keystone/signout')
+        if user
+          if user.canAccessKeystone
+            a(href='/graph/coste')
               span.glyphicon.glyphicon-user
-              |  Cerrar Sesión
+              |  Gráfica de Costo
+            a(href='/graph/stock')
+              span.glyphicon.glyphicon-user
+              |  Gráfica de Costo
+            a(href='/keystone')
+              span.glyphicon.glyphicon-user
+              |  Dashboard
           else
-            a#registro(href='/registro')
-              span.glyphicon.glyphicon-list-alt
-              |  Registrate
-
-            a#iniciosesion(href='/keystone/signin')
+            a(href='/account')
               span.glyphicon.glyphicon-user
-              |  Iniciar Sesion
+              |  Cuenta
+          a(href='/keystone/signout')
+            span.glyphicon.glyphicon-user
+            |  Cerrar Sesión
+        else
+          a#registro(href='/register')
+            span.glyphicon.glyphicon-list-alt
+            |  Registrate
+
+          a#iniciosesion(href='/keystone/signin')
+            span.glyphicon.glyphicon-user
+            |  Iniciar Sesion
 
   // Menu de navegacion por la pagina
   nav.navbar.navbar-inverse.menuClientes.row

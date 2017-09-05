@@ -1,39 +1,97 @@
 extends ../layouts/default
 
+block css
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.css')
+
 block content
   .container
     .row
-      .col-md-12.col-lg-12
+      .col-md-12.col-lg-12(style="margin: 40px 0px;")
         article
-          p
-            a(href="/products") &larr; Back
           hr
           .row
-            .col-md-2.col-lg-2
-              h3 menu
-            .col-md-6.col-lg-6
-              if data.product.image
-                img(src=data.product.image.url).img-responsive
-            .col-xs-12.col-sm-12.col-md-4.col-lg-4
+            .col-xs-12.col-sm-12.col-md-6.col-lg-6
+              #myCarousel.carousel.slide(data-ride='carousel')
+                // Indicators
+                ol.carousel-indicators
+                  li.active(data-target='#myCarousel', data-slide-to='0')
+                  li(data-target='#myCarousel', data-slide-to='1')
+                  li(data-target='#myCarousel', data-slide-to='2')
+                // Wrapper for slides
+                .carousel-inner
+                  .item.active
+                    img(src=product.image1.url, alt='Imagen 1')
+                  .item
+                    img(src=product.image2.url, alt='Imagen 2')
+                  .item
+                    img(src=product.image3.url, alt='Imagen 3')
+                // Left and right controls
+                a.left.carousel-control(href='#myCarousel', data-slide='prev')
+                  span.glyphicon.glyphicon-chevron-left
+                  span.sr-only Previous
+                a.right.carousel-control(href='#myCarousel', data-slide='next')
+                  span.glyphicon.glyphicon-chevron-right
+                  span.sr-only Next
+
+            .col-xs-12.col-sm-12.col-md-6.col-lg-6
               .datosVestido.col-xs-10.col-sm-8.col-md-12
+                input(type="hidden" id="product" value=product.id)
+                if user
+                  input(type="hidden" id="user" value=user.id)
+                else
+                  input(type="hidden" id="user" value="0")
+
+                if pending_cart
+                  input(type="hidden" id="order" value=pending_cart.id)
+                else
+                  input(type="hidden" id="order" value="0")
+
                 ul.list-group
                   li
-                    h2= data.product.title
+                    h2= product.title
                   li
                     h2 $
-                      =data.product.price
+                      =product.price
                   li.list-group-item
+                    .row
+                      .form-group
+                        .col-xs-2.control-label
+                          strong Talla:
+                        .col-xs-4
+                          select#size
+                            if product.qty_S > 0
+                              option(value='s' selected="true") S
+                            else
+                              option(value='s' disabled="true") S
+                            if product.qty_M > 0
+                              option(value='m') M
+                            else
+                              option(value='m' disabled="true") M
+                            if product.qty_L > 0
+                              option(value='l') L
+                            else
+                              option(value='l' disabled="true") L
+                            if product.qty_XL > 0
+                              option(value='xl') XL
+                            else
+                              option(value='xl' disabled="true") XL
+
                     .row
                       .form-group
                         .col-xs-2.control-label
                           strong Qty:
                         .col-xs-4
                           input(type="number" value="1" min="0" max="5" sixe="8")#quantity.form-control
-                      //=data.product.qty
+                      //=product.qty_L
                 .well
-                  =data.product.description
-                <button class="btn btn-danger btn-block" onclick="add_to_cart('#{data.product.id}','#{data.product.price}')">Add to Cart
-                </button>
+                  =product.description
+                if user
+                  <button id="sub" class="btn btn-danger btn-block">Add to Cart
+                  </button>
+                else
+                  <button id="sub" class="btn btn-danger btn-block" >Add to Cart
+                  </button>
 
 block js
-  script(src="/js/cart.js")
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.js')
+  script(src="/javascripts/cart.js")

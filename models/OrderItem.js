@@ -2,8 +2,8 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 var OrderItem = new keystone.List('OrderItem',{
-  noCreate: true,
-  noedit:   true
+  noCreate: false,
+  noedit:   false
 });
 
 OrderItem.add({
@@ -21,6 +21,9 @@ OrderItem.add({
               many:    false,
               index:   true,
               initial: true
+            },
+  size:     {
+              type:    String,
             },
   quantity: {
               type:    Types.Number,

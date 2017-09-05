@@ -26,6 +26,10 @@ User.add(
                   initial:     true,
                   required:    true
               },
+		address:	{
+                  type:        String,
+              },
+
   },
 
   'Permissions',
@@ -49,11 +53,11 @@ User.schema.virtual('canAccessKeystone').get(function () {
 /**
  * Relationships
  */
-User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
+//User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
 
 
 /**
  * Registration
  */
-User.defaultColumns = 'name, email, isAdmin';
+User.defaultColumns = 'name, email, address, isAdmin';
 User.register();
