@@ -1,0 +1,196 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	font-family: 'Josefin Slab', serif;
+	font-weight: bold;
+}
+
+.logo{
+	display: block;
+	margin: auto;
+}
+
+.menuSesion a{
+	margin:0 5px;
+	font-size: 12pt;
+	text-decoration: none;
+}
+
+.menuSesion div{
+	margin-top: 20px;
+}
+
+.menuSesion > div > a:visited{
+	color:red;
+}
+
+.menuSesion > div > a {
+  color: rgb(0,0,0);
+}
+
+.menuSesion > div > a:hover {
+  color: rgba(0,0,0,0.5);
+}
+
+.menuSesion div a:nth-child(1n+0)::after{
+	content: " | "
+}
+
+.menuSesion div a:last-child::after{
+	content: " ";
+}
+
+.submarca{
+	margin-left:15px;
+}
+
+.carousel-inner img{
+	display: block;
+	margin: auto;
+	max-height: 400px;
+	width: auto;
+}
+
+.thumb{
+	min-height: 200px;
+	margin-top: 10px;
+}
+
+.imageGaleria{
+	width: auto;
+	margin: auto;
+	max-height: 300px;
+	vertical-align: middle;
+}
+
+.thumbnail{
+	margin-bottom: 0;
+	display: block;
+	-webkit-box-shadow: 5px 3px 16px 1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 5px 3px 16px 1px rgba(0,0,0,0.75);
+	box-shadow: 1px 3px 10px 1px rgba(0,0,0,0.75);
+	opacity: 0.8;
+}
+
+.thumbnail:hover{
+	opacity: 1;
+}
+
+#variante{
+	overflow: auto;
+}
+
+#cuerpo{
+	margin: 10px 0;
+}
+
+.costo{
+	font-size: 20pt;
+}
+
+.imagenVestido{
+	width: 100%;
+	height: auto;
+}
+
+#compras{
+	overflow: hidden;
+}
+
+.datosVestido{
+	float: none;
+	margin: 0 auto;
+}
+
+.datosgaleria{
+	margin-top: 10px;
+}
+
+.botoncomprar{
+	margin-top: 10px;
+}
+
+ul{
+	list-style-type: none;
+}
+
+.li{
+	display: inline-block;
+	font-size: 12pt;
+}
+
+.menuNavegacion li::after{
+	display: block;
+	font-size: 12pt;
+}
+
+.menuNavegacion li:hover{
+	background-color: #DD2424;
+}
+
+.navbar{
+	margin-bottom: 0;
+}
+
+.informacion{
+	background-color: #0B0F12;
+	border-radius: 5px;
+}
+
+.redesSociales>h2, .mails>form{
+	color: #ffffff;
+	font-weight: bold;
+}
+
+h1,h2,h3{
+	font-weight: bold;
+}
+
+#map{
+	width:100%;
+	height:400px;
+	background:yellow;
+}
+
+input{
+	color: #000;
+}
+
+
+
+/** Header **/
+#primary-nav {
+  margin: 20px 0px;
+}
+
+
+/** Footer **/
+.mails {
+	margin: 25px auto;
+}
+
+.menuEmpresa{
+	margin: 10px 0;
+	padding: 10px 10px;
+	font-size: 1em;
+}
+
+.menuEmpresa > a {
+  color: rgb(0,0,0);
+  text-decoration: none;
+}
+
+.menuEmpresa > a:hover {
+  color: rgba(0,0,0,0.5);
+}
+
+#administracion{
+	float: right;
+}
+
+#derechos {
+	text-align: center;
+}
