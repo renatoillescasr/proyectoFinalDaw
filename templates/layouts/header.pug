@@ -1,0 +1,46 @@
+header.container
+  section#primary-nav.container.row
+    figure.col-xs-12.col-sm-2.col-md-2
+      a(href='index.html')
+        img.logo.img-responsive(src='/images/logo.png', alt='logo')
+    nav.navbar.menuSesion.col-xs-12.col-sm-10.col-md-10
+      .container-fluid.nav.navbar-nav.navbar-right
+        a#carrito(href='micarrito.html')
+          span.glyphicon.glyphicon-shopping-cart
+          Mi Carrito
+
+          if user
+            if user.canAccessKeystone
+              a(href='/keystone')
+                span.glyphicon.glyphicon-user
+                |  Admin
+            a#iniciosesion(href='/keystone/signout')
+              span.glyphicon.glyphicon-user
+              |  Cerrar Sesión
+          else
+            a#registro(href='/registro')
+              span.glyphicon.glyphicon-list-alt
+              |  Registrate
+
+            a#iniciosesion(href='/keystone/signin')
+              span.glyphicon.glyphicon-user
+              |  Iniciar Sesion
+
+  // Menu de navegacion por la pagina
+  nav.navbar.navbar-inverse.menuClientes.row
+    .container-fluid
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+      #myNavbar.collapse.navbar-collapse
+        ul.nav.navbar-nav.menuNavegacion
+          li.active
+            a(href='/') Inicio
+          li
+            a(href='catalogue/') Catalogo
+          li
+            a(href='tiendas.html') Tiendas
+          li
+            a(href='contacto.html') Contacto

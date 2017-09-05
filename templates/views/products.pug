@@ -1,0 +1,16 @@
+extends ../layouts/default
+
+block content
+  .container
+    h2 Vestidos
+    .row
+      .hidden-xs.hidden-sm.col-md-2.col-lg-2
+        ul.menuColeccion.nav.nav-list
+          li
+            //label VESTIDOS
+            ul#despliegeMarcas.nav.nav-list.tree
+      .col-md-10.col-lg-10
+          .row#galeriaColeccion
+
+block js
+  script(src="/javascripts/catalogue.js")
