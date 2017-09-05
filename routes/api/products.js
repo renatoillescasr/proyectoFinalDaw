@@ -15,3 +15,16 @@ exports.list = function(req, res) {
         });
     });
 }
+
+
+/**
+ * List Products by Brand
+ */
+exports.brand_list = function(req, res) {
+    Product.model.find({brand: req.params.brand},function(err, items) {
+        if (err) return res.apiError('database error', err);
+        res.apiResponse({
+            products: items
+        });
+    });
+}

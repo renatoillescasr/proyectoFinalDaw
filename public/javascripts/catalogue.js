@@ -6,8 +6,10 @@ function appendBrands(brands) {
     $item.appendTo($brands);
 
     $link = $('<a>',{
-      href: '/catalogue/brand/' + brands[brand]
+      href: '#',
     })
+    $link.attr('data-brand', '/api/product/' + brands[brand] + '/list');
+    $link.addClass('brand');
     $link.appendTo($item);
 
     $title = $('<span>',{
@@ -16,6 +18,7 @@ function appendBrands(brands) {
     $title.addClass('activo');
     $title.appendTo($link);
   }
+  handleBrand();
 }
 
 function appendProduct(store) {
@@ -77,3 +80,20 @@ $.get('/api/product/list', function(data){
 
   appendBrands($brands);
 });
+
+
+function handleBrand() {
+  $('.brand').click(function(e){
+    e.preventDefault();
+
+    url = $(this).attr('data-brand');
+    console.log(url);
+
+    $.get(url, function(data){
+      $('#galeriaColeccion').empty();
+      $.each(data.products, function(index, store){
+        appendProduct(store);
+      });
+    });
+  });
+}

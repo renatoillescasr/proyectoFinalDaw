@@ -23,15 +23,11 @@ body{
 	margin-top: 20px;
 }
 
-.menuSesion > div > a:visited{
-	color:red;
-}
-
-.menuSesion > div > a {
+.menuSesion a {
   color: rgb(0,0,0);
 }
 
-.menuSesion > div > a:hover {
+.menuSesion a:hover {
   color: rgba(0,0,0,0.5);
 }
 

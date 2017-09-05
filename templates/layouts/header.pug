@@ -14,7 +14,7 @@ header.container
               a(href='/keystone')
                 span.glyphicon.glyphicon-user
                 |  Admin
-            a#iniciosesion(href='/keystone/signout')
+            a(href='/keystone/signout')
               span.glyphicon.glyphicon-user
               |  Cerrar Sesión
           else
@@ -36,11 +36,30 @@ header.container
           span.icon-bar
       #myNavbar.collapse.navbar-collapse
         ul.nav.navbar-nav.menuNavegacion
-          li.active
-            a(href='/') Inicio
-          li
-            a(href='catalogue/') Catalogo
-          li
-            a(href='tiendas.html') Tiendas
-          li
-            a(href='contacto.html') Contacto
+          if(locals.section == 'home')
+            li.active
+              a(href='/') Inicio
+          else
+            li
+              a(href='/') Inicio
+
+          if(locals.section == 'product')
+            li.active
+              a(href='/catalogue') Catalogo
+          else
+            li
+              a(href='/catalogue') Catalogo
+
+          if(locals.section == 'store')
+            li.active
+              a(href='/store') Tiendas
+          else
+            li
+              a(href='/store') Tiendas
+
+          if(locals.section == 'contact')
+            li.active
+              a(href='/contact') Contacto
+          else
+            li
+              a(href='/contact') Contacto

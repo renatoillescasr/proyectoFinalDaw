@@ -1,0 +1,19 @@
+extends ../layouts/default
+
+  section#variante.container
+    #cuerpo.row
+      // FORMULARIO
+      .container.row
+        h3 INICIO DE SESION
+        form.form-horizontal(action='/keystone/api/session/signin', method='post', autocomplete='on')
+          .form-group
+            label.col-sm-offset-1.col-sm-2.control-label(for='email') Correo:
+            .col-sm-4
+              input#email.form-control(type='email', autocomplete='email', placeholder='correo@electronico.com', required='required')
+          .form-group
+            label.col-sm-offset-1.col-sm-2.control-label(for='password') Clave:
+            .col-sm-4
+              input#clave.form-control(type='password', required='required')
+          .form-group
+            .col-sm-offset-5.col-sm-7
+              button.btn.btn-danger.btn-lg(type='submit', formaction='index.html') Enviar

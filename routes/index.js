@@ -39,7 +39,13 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
   app.get('/catalogue', routes.views.product);
+  app.get('/store', routes.views.store);
+  app.get('/contact', routes.views.contact);
+
 
   // API
   app.get('/api/product/list', keystone.middleware.api, routes.api.products.list);
+  app.get('/api/product/:brand/list', keystone.middleware.api, routes.api.products.brand_list);
+
+  app.get('/api/store/list', keystone.middleware.api, routes.api.stores.list);
 };
